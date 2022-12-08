@@ -1,5 +1,6 @@
 package pageobjekts;
 
+import data.UseBuilder;
 import data.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,6 +18,13 @@ public class FormConsultation {
     @FindBy(xpath = "//button[contains(@class,\"socials-input-triggers\")]")
     List<WebElement> socialList;
 
+
+    public void compliteForm(UseBuilder user) {
+        this.name.sendKeys(user.getName());
+        this.email.sendKeys(user.getEmail());
+        this.tel.sendKeys(user.getTelephone());
+        selectSocial("tg");
+    }
     public void compliteForm(User user) {
         this.name.sendKeys(user.getName());
         this.email.sendKeys(user.getEmail());

@@ -10,6 +10,7 @@ public class BaseClass {
     @BeforeClass
     public static void createDriver() {
        driver=DriverConfig.create(BROWSERS.CHROMEINCOGNITO);
+
     }
     @AfterClass
     public static void after(){

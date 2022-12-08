@@ -7,33 +7,36 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.concurrent.TimeUnit;
 
 public class DriverConfig {
-  private static WebDriver driver;
+    private static WebDriver driver;
 
-    public static WebDriver create(BROWSERS browsers){
-        switch (browsers){
-            case CHROMEINCOGNITO -> createChrome();
-            case FIREFOX -> ctreateFirefox();
+    public static WebDriver create(BROWSERS browsers) {
+        if (driver == null) {
+            switch (browsers) {
+                case CHROMEINCOGNITO -> createChrome();
+                case FIREFOX -> ctreateFirefox();
+            }
         }
         return driver;
     }
 
 
     private static void createChrome() {
-        if (driver == null) {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--incognito");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
 //            options.addArguments("--headless");
-            driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options);
 
-        }
+
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
-    private static void ctreateFirefox(){
+
+    private static void ctreateFirefox() {
 
     }
 
-    private void createChromeProxy(){}
+    private void createChromeProxy() {
+    }
 
 }
 
