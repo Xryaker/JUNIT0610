@@ -22,10 +22,7 @@ public class Tarck extends BaseClass {
 
     @Test
     public void track() {
-        mainPage.clickButtonCourse();
-        mainPage.selectCource("QA Automation");
-//        qaPage.clickButton(driver);
-        assertEquals(qaPage.getTitleIntrotext(driver),"Перейди в автоматизацію!");
+        System.out.println(mainPage.getUrlByCityHolder());
     }
     @Test
     public void track1(){

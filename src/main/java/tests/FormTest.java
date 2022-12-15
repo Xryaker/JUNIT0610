@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import pageobjekts.FormConsultation;
 import pageobjekts.MainPage;
 
+import java.util.concurrent.TimeUnit;
+
 public class FormTest extends BaseClass {
     static final String mainURL = "https://vinnytsia.ithillel.ua/";
     static MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
@@ -20,7 +22,6 @@ public class FormTest extends BaseClass {
     public void before() {
         if (!driver.getCurrentUrl().equals(mainURL)) {
             driver.get("https://vinnytsia.ithillel.ua/");
-
         }
     }
 

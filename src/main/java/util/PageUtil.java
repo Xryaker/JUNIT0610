@@ -18,4 +18,26 @@ public class PageUtil {
             }
         }
     }
+
+   static public boolean pauseUntil(WebDriver driver,By by,String str){
+        int i=0;
+        while (true){
+            System.out.println(i);
+            if(driver.findElement(by).getText().equals(str)){
+                return true;
+            }else{
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                if(i==10) {
+                    return false;
+                }
+                i++;
+
+            }
+
+        }
+    }
 }
