@@ -1,5 +1,6 @@
 package configuretions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,11 +13,19 @@ public class DriverConfig {
     public static WebDriver create(BROWSERS browsers) {
         if (driver == null) {
             switch (browsers) {
+                case CHORMDRIVERMANAGER -> createCromeDriverManager();
                 case CHROMEINCOGNITO -> createChrome();
                 case FIREFOX -> ctreateFirefox();
             }
         }
         return driver;
+    }
+
+    private static void createCromeDriverManager() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        driver=new ChromeDriver(options);
     }
 
 

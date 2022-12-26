@@ -19,6 +19,22 @@ public class FormConsultation {
     List<WebElement> socialList;
 
 
+    public void setName(String name) {
+        this.name.sendKeys(name);
+    }
+
+    public void setEmail(String email) {
+        this.email.sendKeys(email);
+    }
+
+    public void setTel(String tel) {
+        this.tel.sendKeys(tel);
+    }
+
+    public void setSocialList(String socialName) {
+        selectSocial(socialName);
+    }
+
     public void compliteForm(UseBuilder user) {
         this.name.sendKeys(user.getName());
         this.email.sendKeys(user.getEmail());

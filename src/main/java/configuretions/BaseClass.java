@@ -3,13 +3,17 @@ package configuretions;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
+import pageobjekts.FormConsultation;
+import pageobjekts.MainPage;
+
+import java.util.ResourceBundle;
 
 public class BaseClass {
     public static WebDriver driver;
 
     @BeforeClass
     public static void createDriver() {
-       driver=DriverConfig.create(BROWSERS.CHROMEINCOGNITO);
+       driver=DriverConfig.create(BROWSERS.CHORMDRIVERMANAGER);
 
     }
     @AfterClass
