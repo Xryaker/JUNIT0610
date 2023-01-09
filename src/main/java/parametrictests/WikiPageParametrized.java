@@ -32,7 +32,6 @@ public class WikiPageParametrized extends BaseClass {
         System.out.println("start");
         lang = language;
         bundle = ResourceBundle.getBundle(lang.getCountryCode());
-
         wikiPage = PageFactory.initElements(driver, WikiPage.class);
     }
     @Before

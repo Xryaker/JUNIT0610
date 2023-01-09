@@ -1,5 +1,3 @@
-package tests;
-
 import configuretions.BaseClass;
 import data.DataProvider;
 import data.UseBuilder;
@@ -22,6 +20,7 @@ public class FormTest extends BaseClass {
     public void before() {
         if (!driver.getCurrentUrl().equals(mainURL)) {
             driver.get("https://vinnytsia.ithillel.ua/");
+            System.out.println(mainURL);
         }
     }
 

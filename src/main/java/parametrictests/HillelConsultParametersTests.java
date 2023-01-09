@@ -42,8 +42,7 @@ public class HillelConsultParametersTests extends BaseClass {
     @Test
     public void test1() {
         driver.get("https://vinnytsia.ithillel.ua/");
-        mainPage.getConsultationButton().click();
-        formConsultation.setName(bundle.getString("name"));
+        mainPage.getConsultationButton().click();formConsultation.setName(bundle.getString("name"));
         formConsultation.setEmail(bundle.getString("email"));
         formConsultation.setTel(bundle.getString("telephoneNumber"));
         formConsultation.setSocialList(bundle.getString("msg"));

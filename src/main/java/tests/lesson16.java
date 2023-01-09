@@ -3,6 +3,7 @@ package tests;
 import configuretions.BaseClass;
 import static org.junit.Assert.*;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,14 +11,17 @@ import org.junit.rules.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageobjekts.MainPage;
 import util.PageUtil;
+import util.WorkWithLogs;
 
 import java.time.Duration;
+import java.util.logging.Level;
 
 
 public class lesson16 extends BaseClass {
@@ -43,7 +47,7 @@ public class lesson16 extends BaseClass {
     @Test
     public void test4(){
 
-       assertTrue(new WebDriverWait(driver, Duration.ofSeconds(5))
+       assertTrue(new WebDriverWait(driver, 5)
                .until(ExpectedConditions.textToBe(By.id("btn-consultation-hero"),"Безкоштовна консультація")));
 
     }
@@ -56,6 +60,11 @@ public class lesson16 extends BaseClass {
     @Before
     public void befor(){
         System.out.println("befor");
+    }
+    @AfterClass
+    public static void closePage(){
+      // WorkWithLogs.printLogs(driver);
+        WorkWithLogs.writeLogsToFile(driver,"logsY", Level.SEVERE );
     }
 
 }
